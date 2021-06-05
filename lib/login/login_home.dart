@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'mainHome.dart';
+import 'package:provider/provider.dart';
+import '../mainHome/mainHome.dart';
+import '../provider/fixed_provider.dart';
 
 class LoginHome extends StatefulWidget {
   @override
@@ -12,9 +14,8 @@ class _LoginHomeState extends State<LoginHome> {
     bool _checkValue = false;
     TextEditingController _idController = TextEditingController();
     TextEditingController _pwController = TextEditingController();
-
-    num deviceWidth = MediaQuery.of(context).size.width;
-    num deviceHeighth = MediaQuery.of(context).size.height;
+    FixedProvider fixedProvider =
+        Provider.of<FixedProvider>(context, listen: false);
 
     return SingleChildScrollView(
       child: Center(
@@ -22,12 +23,12 @@ class _LoginHomeState extends State<LoginHome> {
           children: [
             Image.asset(
               'assets/login_back.png',
-              height: deviceWidth * 1.08,
-              width: deviceWidth,
+              height: fixedProvider.deviceWidth * 1.08,
+              width: fixedProvider.deviceWidth,
               fit: BoxFit.cover,
             ),
             Padding(
-              padding: EdgeInsets.only(top: deviceWidth * 0.02),
+              padding: EdgeInsets.only(top: fixedProvider.deviceWidth * 0.02),
               child: Image.asset(
                 'assets/login_br_logo.png',
               ),
@@ -39,8 +40,8 @@ class _LoginHomeState extends State<LoginHome> {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
-                        left: deviceWidth * 0.145,
-                        top: deviceWidth * 0.05,
+                        left: fixedProvider.deviceWidth * 0.145,
+                        top: fixedProvider.deviceWidth * 0.05,
                       ),
                       child: Text(
                         '아이디',
@@ -53,8 +54,8 @@ class _LoginHomeState extends State<LoginHome> {
                     ),
                     Container(
                       margin: EdgeInsets.only(
-                        left: deviceWidth * 0.145,
-                        right: deviceWidth * 0.145,
+                        left: fixedProvider.deviceWidth * 0.145,
+                        right: fixedProvider.deviceWidth * 0.145,
                         top: 4,
                       ),
                       decoration: BoxDecoration(
@@ -62,7 +63,7 @@ class _LoginHomeState extends State<LoginHome> {
                         borderRadius: BorderRadius.circular(30),
                       ),
                       height: 30,
-                      width: deviceWidth * 0.5,
+                      width: fixedProvider.deviceWidth * 0.5,
                       child: TextField(
                         controller: _idController,
                         decoration: InputDecoration(
@@ -88,7 +89,7 @@ class _LoginHomeState extends State<LoginHome> {
                         borderRadius: BorderRadius.circular(30),
                       ),
                       height: 30,
-                      width: deviceWidth * 0.145,
+                      width: fixedProvider.deviceWidth * 0.145,
                       child: TextField(
                         controller: _pwController,
                         decoration: InputDecoration(

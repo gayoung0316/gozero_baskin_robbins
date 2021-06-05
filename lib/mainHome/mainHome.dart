@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gozero_baskin_robbins/provider/fixed_provider.dart';
-import 'package:provider/provider.dart';
+// import 'package:gozero_baskin_robbins/provider/fixed_provider.dart';
+// import 'package:provider/provider.dart';
 
 class MainHome extends StatefulWidget {
   @override
@@ -10,10 +10,9 @@ class MainHome extends StatefulWidget {
 class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
-    FixedProvider fixedProvider =
-        Provider.of<FixedProvider>(context, listen: false);
-    fixedProvider.setDeviceWidth(MediaQuery.of(context).size.width);
-    fixedProvider.setDeviceHeight(MediaQuery.of(context).size.height);
+    // FixedProvider fixedProvider =
+    //     Provider.of<FixedProvider>(context, listen: false);
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
