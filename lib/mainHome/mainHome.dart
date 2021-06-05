@@ -10,9 +10,6 @@ class MainHome extends StatefulWidget {
 class _MainHomeState extends State<MainHome> {
   @override
   Widget build(BuildContext context) {
-    // FixedProvider fixedProvider =
-    //     Provider.of<FixedProvider>(context, listen: false);
-
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -247,6 +244,30 @@ class _MainHomeState extends State<MainHome> {
                         ],
                       ),
                     ),
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    Text('인기 메뉴'),
+                    Row(
+                      children: [
+                        Stack(
+                          children: [
+                            Image.asset(''),
+                            Container(
+                              child: Column(
+                                children: [
+                                  Image.asset(''),
+                                  Text('내 친구 펭수'),
+                                ],
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    )
                   ],
                 ),
               )

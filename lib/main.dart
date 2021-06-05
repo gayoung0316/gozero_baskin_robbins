@@ -4,7 +4,6 @@ import 'package:gozero_baskin_robbins/provider/fixed_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  // runApp(MyApp());
   runApp(
     MultiProvider(
       providers: [
@@ -16,7 +15,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
