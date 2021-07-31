@@ -9,397 +9,443 @@ class MainHome extends StatefulWidget {
 }
 
 class _MainHomeState extends State<MainHome> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Image.asset(
-                  'assets/main_group.png',
-                  width: 560.sp,
-                  height: 380.sp,
-                  fit: BoxFit.cover,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: 30.sp, top: 47.sp),
-                      child: Image.asset(
-                        'assets/main_menu.png',
-                        width: 18.sp,
-                        height: 18.sp,
-                      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/main_home_page.png'),
+            title: Text(
+              'Home',
+              style: TextStyle(fontSize: 0.0),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/main_home_page.png'),
+            title: Text(
+              'Home',
+              style: TextStyle(fontSize: 0.0),
+            ),
+          ),
+          // BottomNavigationBarItem(
+          //   icon: Image.asset('assets/main_home_icon/main_home_icon.png'),
+          //   title: Text(
+          //     'Home',
+          //     style: TextStyle(fontSize: 0.0),
+          //   ),
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: Image.asset('assets/main_home_icon/main_home_icon.png'),
+          //   title: Text(
+          //     'Home',
+          //     style: TextStyle(fontSize: 0.0),
+          //   ),
+          // ),
+        ],
+      ),
+    );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  Widget mainHomePage() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                'assets/main_group.png',
+                width: 560.w,
+                height: 380.w,
+                fit: BoxFit.cover,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(right: 30.w, top: 47.w),
+                    child: Image.asset(
+                      'assets/main_menu.png',
+                      width: 18.w,
+                      height: 18.w,
                     ),
-                  ],
-                ),
-                Container(
-                  margin:
-                      EdgeInsets.only(top: 300.sp, left: 28.sp, right: 28.sp),
-                  // width: MediaQuery.of(context).size.width,
-                  height: 120.sp,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.sp),
-                    boxShadow: [
-                      BoxShadow(
-                        color:
-                            Color.fromRGBO(248, 157, 217, 0.3100000023841858),
-                        offset: Offset(3, 3),
-                        blurRadius: 4,
-                      )
-                    ],
-                    color: Color.fromRGBO(255, 255, 255, 1),
                   ),
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 18.sp),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(60.sp),
-                          child: Image.asset(
-                            'assets/jk.jpeg',
-                            height: 90.sp,
-                            width: 90.sp,
-                          ),
+                ],
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 300.w,
+                  left: 28.w,
+                  right: 28.w,
+                ),
+                // width: MediaQuery.of(context).size.width,
+                height: 120.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.w),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(248, 157, 217, 0.3100000023841858),
+                      offset: Offset(3, 3),
+                      blurRadius: 4,
+                    )
+                  ],
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 18.w),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(60.w),
+                        child: Image.asset(
+                          'assets/jk.jpeg',
+                          height: 90.w,
+                          width: 90.w,
                         ),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 30.sp),
-                            child: Text(
-                              '최가영님, 오늘은',
-                              style: TextStyle(
-                                color: Color(0xff5A585A),
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 30.w),
+                          child: Text(
+                            '최가영님, 오늘은',
+                            style: TextStyle(
+                              color: Color(0xff5A585A),
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 30.sp),
-                            child: Text(
-                              '어떤 맛을 원하세요?',
-                              style: TextStyle(
-                                color: Color(0xff5A585A),
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 30.w),
+                          child: Text(
+                            '어떤 맛을 원하세요?',
+                            style: TextStyle(
+                              color: Color(0xff5A585A),
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Container(
-                            // width: 150.sp,
-                            height: 18.sp,
-                            margin: EdgeInsets.only(left: 30.sp, top: 14.sp),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Color(0xffF89DDA).withOpacity(0.66),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 15.sp),
-                              child: Center(
-                                child: Text(
-                                  '베라로 31',
-                                  style: TextStyle(
-                                    color: Color(0xffFFFFFF),
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
+                        ),
+                        Container(
+                          // width: 150.sp,
+                          height: 18.sp,
+                          margin: EdgeInsets.only(left: 30.w, top: 14.w),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xffF89DDA).withOpacity(0.66),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 15.w),
+                            child: Center(
+                              child: Text(
+                                '광주광역시 광산구 베라로 31 ',
+                                style: TextStyle(
+                                  color: Color(0xffFFFFFF),
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                             ),
-                          )
-                        ],
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 36.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 78.w,
+                  height: 78.w,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.25),
+                        offset: Offset(0, 4),
+                        blurRadius: 4,
+                      )
+                    ],
+                    color: Color.fromRGBO(255, 221, 248, 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.elliptical(78, 78),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.w),
+                        child: Image.asset(
+                          'assets/mainHome_rider.png',
+                          width: 44.w,
+                          height: 44.w,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4.w),
+                        child: Text(
+                          '배달하기',
+                          style: TextStyle(
+                            color: Color(0xffF970C5),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.sp,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 30.w),
+                  width: 78.w,
+                  height: 78.w,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.25),
+                        offset: Offset(0, 4),
+                        blurRadius: 4,
+                      )
+                    ],
+                    color: Color.fromRGBO(255, 221, 248, 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.elliptical(78, 78),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.w),
+                        child: Image.asset(
+                          'assets/mainHome_gift.png',
+                          width: 44.w,
+                          height: 44.w,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4.w),
+                        child: Text(
+                          '선물하기',
+                          style: TextStyle(
+                            color: Color(0xffF970C5),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.sp,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 78.w,
+                  height: 78.w,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.25),
+                        offset: Offset(0, 4),
+                        blurRadius: 4,
+                      )
+                    ],
+                    color: Color.fromRGBO(255, 221, 248, 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.elliptical(78, 78),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.w),
+                        child: Image.asset(
+                          'assets/mainHome_Fire.png',
+                          width: 44.w,
+                          height: 44.w,
+                        ),
+                      ),
+                      // SizedBox(height: 4),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4.w),
+                        child: Text(
+                          '이벤트',
+                          style: TextStyle(
+                            color: Color(0xffF970C5),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 9.sp,
+                          ),
+                        ),
                       )
                     ],
                   ),
                 ),
               ],
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 36.sp),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 78.sp,
-                    height: 78.sp,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          offset: Offset(0, 4),
-                          blurRadius: 4,
-                        )
-                      ],
-                      color: Color.fromRGBO(255, 221, 248, 1),
-                      borderRadius: BorderRadius.all(
-                        Radius.elliptical(78, 78),
-                      ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 23.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 24.w),
+                  child: Text(
+                    '인기 메뉴',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff5A585A),
                     ),
-                    child: Column(
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 24.w, top: 10.w),
+                  child: SingleChildScrollView(
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 8.sp),
-                          child: Image.asset(
-                            'assets/mainHome_rider.png',
-                            width: 44.sp,
-                            height: 44.sp,
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xffFFAFED).withOpacity(0.89),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.25),
+                                offset: Offset(0, 4),
+                                blurRadius: 4,
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(5),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 4.sp),
-                          child: Text(
-                            '배달하기',
-                            style: TextStyle(
-                              color: Color(0xffF970C5),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 9.sp,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30.sp),
-                    width: 78.sp,
-                    height: 78.sp,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          offset: Offset(0, 4),
-                          blurRadius: 4,
-                        )
-                      ],
-                      color: Color.fromRGBO(255, 221, 248, 1),
-                      borderRadius: BorderRadius.all(
-                        Radius.elliptical(78, 78),
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 8.sp),
-                          child: Image.asset(
-                            'assets/mainHome_gift.png',
-                            width: 44.sp,
-                            height: 44.sp,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 4.sp),
-                          child: Text(
-                            '선물하기',
-                            style: TextStyle(
-                              color: Color(0xffF970C5),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 9.sp,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: 78.sp,
-                    height: 78.sp,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.25),
-                          offset: Offset(0, 4),
-                          blurRadius: 4,
-                        )
-                      ],
-                      color: Color.fromRGBO(255, 221, 248, 1),
-                      borderRadius: BorderRadius.all(
-                        Radius.elliptical(78, 78),
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 8.sp),
-                          child: Image.asset(
-                            'assets/mainHome_Fire.png',
-                            width: 44.sp,
-                            height: 44.sp,
-                          ),
-                        ),
-                        // SizedBox(height: 4),
-                        Padding(
-                          padding: EdgeInsets.only(top: 4.sp),
-                          child: Text(
-                            '이벤트',
-                            style: TextStyle(
-                              color: Color(0xffF970C5),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 9.sp,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 23.sp),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 24.sp),
-                    child: Text(
-                      '인기 메뉴',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xff5A585A),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 24.sp, top: 10.sp),
-                    child: SingleChildScrollView(
-                      child: Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Color(0xffFFAFED).withOpacity(0.89),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  offset: Offset(0, 4),
-                                  blurRadius: 4,
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            width: 95.sp,
-                            height: 140.sp,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/my_friend_pengsu.png',
-                                  width: 86.sp,
-                                  height: 88.sp,
-                                  fit: BoxFit.cover,
+                          width: 95.w,
+                          height: 140.w,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/my_friend_pengsu.png',
+                                width: 86.w,
+                                height: 88.w,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                '내 친구 펭수',
+                                style: TextStyle(
+                                  color: Color(0xffFFFFFF),
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.w400,
                                 ),
-                                Text(
-                                  '내 친구 펭수',
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 21.w),
+                          decoration: BoxDecoration(
+                            color: Color(0xffFFAFED).withOpacity(0.89),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.25),
+                                offset: Offset(0, 4),
+                                blurRadius: 4,
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          width: 95.w,
+                          height: 140.w,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/shine_muscat.png',
+                                width: 71.w,
+                                height: 97.w,
+                                fit: BoxFit.cover,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 17.w),
+                                child: Text(
+                                  '샤인머스캣 말랑 블렌디드',
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Color(0xffFFFFFF),
                                     fontSize: 11.sp,
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            margin: EdgeInsets.only(left: 21.sp),
-                            decoration: BoxDecoration(
-                              color: Color(0xffFFAFED).withOpacity(0.89),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  offset: Offset(0, 4),
-                                  blurRadius: 4,
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            width: 95.sp,
-                            height: 140.sp,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/shine_muscat.png',
-                                  width: 71.sp,
-                                  height: 97.sp,
-                                  fit: BoxFit.cover,
-                                ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 17.sp),
-                                  child: Text(
-                                    '샤인머스캣 말랑 블렌디드',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Color(0xffFFFFFF),
-                                      fontSize: 11.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 21.w),
+                          decoration: BoxDecoration(
+                            color: Color(0xffFFAFED).withOpacity(0.89),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.25),
+                                offset: Offset(0, 4),
+                                blurRadius: 4,
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          width: 95.w,
+                          height: 140.w,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/mom_is_alien.png',
+                                width: 75.w,
+                                height: 97.w,
+                                fit: BoxFit.cover,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 17.w),
+                                child: Text(
+                                  '엄마는 외계인 블라스트',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color(0xffFFFFFF),
+                                    fontSize: 11.sp,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            margin: EdgeInsets.only(left: 21.sp),
-                            decoration: BoxDecoration(
-                              color: Color(0xffFFAFED).withOpacity(0.89),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromRGBO(0, 0, 0, 0.25),
-                                  offset: Offset(0, 4),
-                                  blurRadius: 4,
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            width: 95.sp,
-                            height: 140.sp,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/mom_is_alien.png',
-                                  width: 75.sp,
-                                  height: 97.sp,
-                                  fit: BoxFit.cover,
-                                ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 17.sp),
-                                  child: Text(
-                                    '엄마는 외계인 블라스트',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Color(0xffFFFFFF),
-                                      fontSize: 11.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-            SizedBox(
-              height: 100,
-            )
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 100,
+          )
+        ],
       ),
     );
   }

@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gozero_baskin_robbins/login/login_home.dart';
-import 'package:gozero_baskin_robbins/provider/fixed_provider.dart';
-import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => FixedProvider()),
-      ],
-      child: MyApp(),
-    ),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -39,10 +30,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    FixedProvider fixedProvider =
-        Provider.of<FixedProvider>(context, listen: false);
-    fixedProvider.setDeviceWidth(MediaQuery.of(context).size.width);
-    fixedProvider.setDeviceHeight(MediaQuery.of(context).size.height);
     return Scaffold(
       backgroundColor: Color.fromRGBO(250, 199, 239, 1),
       body: LoginHome(),

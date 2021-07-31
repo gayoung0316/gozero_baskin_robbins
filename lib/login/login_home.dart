@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 import '../mainHome/mainHome.dart';
-import '../provider/fixed_provider.dart';
 
 class LoginHome extends StatefulWidget {
   @override
@@ -15,8 +13,6 @@ class _LoginHomeState extends State<LoginHome> {
     bool _checkValue = false;
     TextEditingController _idController = TextEditingController();
     TextEditingController _pwController = TextEditingController();
-    FixedProvider fixedProvider =
-        Provider.of<FixedProvider>(context, listen: false);
 
     return SingleChildScrollView(
       child: Column(
@@ -60,8 +56,8 @@ class _LoginHomeState extends State<LoginHome> {
                     color: Color(0xffFFFFFF).withOpacity(0.57),
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  height: 30.sp,
-                  width: 285.sp,
+                  height: 30.w,
+                  width: 285.w,
                   child: TextField(
                     controller: _idController,
                     decoration: InputDecoration(
@@ -71,7 +67,7 @@ class _LoginHomeState extends State<LoginHome> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 54.sp, top: 19.sp),
+                padding: EdgeInsets.only(left: 54.w, top: 19.w),
                 child: Text(
                   '비밀번호',
                   style: TextStyle(
@@ -88,8 +84,8 @@ class _LoginHomeState extends State<LoginHome> {
                     color: Color(0xffFFFFFF).withOpacity(0.57),
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  height: 30.sp,
-                  width: 285.sp,
+                  height: 30.w,
+                  width: 285.w,
                   child: TextField(
                     controller: _pwController,
                     decoration: InputDecoration(
@@ -99,13 +95,13 @@ class _LoginHomeState extends State<LoginHome> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 18.sp),
+                margin: EdgeInsets.only(top: 18.w),
                 width: MediaQuery.of(context).size.width,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 55.sp),
+                      padding: EdgeInsets.only(left: 55.w),
                       child: Text(
                         '회원가입',
                         style: TextStyle(
@@ -116,7 +112,7 @@ class _LoginHomeState extends State<LoginHome> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 45.sp),
+                      padding: EdgeInsets.only(right: 45.w),
                       child: Row(
                         children: [
                           InkWell(
@@ -138,8 +134,8 @@ class _LoginHomeState extends State<LoginHome> {
                                         width: 2.0,
                                       ),
                               ),
-                              width: 24,
-                              height: 24,
+                              width: 24.w,
+                              height: 24.w,
                               child: _checkValue
                                   ? Icon(
                                       Icons.check,
@@ -149,7 +145,7 @@ class _LoginHomeState extends State<LoginHome> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 8.0),
+                            padding: EdgeInsets.only(left: 8.0.w),
                             child: Text(
                               '로그인 유지',
                               style: TextStyle(
@@ -177,12 +173,12 @@ class _LoginHomeState extends State<LoginHome> {
               );
             },
             child: Container(
-              width: 128.sp,
-              height: 36.sp,
-              margin: EdgeInsets.only(top: 42.sp),
+              width: 128.w,
+              height: 36.w,
+              margin: EdgeInsets.only(top: 42.w),
               decoration: BoxDecoration(
                 color: Color(0xffFFFFFF),
-                borderRadius: BorderRadius.circular(18.sp),
+                borderRadius: BorderRadius.circular(18),
               ),
               child: Center(
                 child: Text(
