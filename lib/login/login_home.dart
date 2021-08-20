@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gozero_baskin_robbins/mainHome/test.dart';
-import '../mainHome/mainHome.dart';
+import 'package:gozero_baskin_robbins/mainHome/bottom_navigation_bar.dart';
+import '../mainHome/main_home.dart';
 
 class LoginHome extends StatefulWidget {
   @override
@@ -169,7 +169,7 @@ class _LoginHomeState extends State<LoginHome> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyApp(),
+                  builder: (context) => BottomNavigation(),
                 ),
               );
             },

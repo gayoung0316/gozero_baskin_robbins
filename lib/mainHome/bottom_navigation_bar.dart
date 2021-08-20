@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gozero_baskin_robbins/mainHome/mainHome.dart';
+import 'package:gozero_baskin_robbins/mainHome/main_home.dart';
 import 'package:gozero_baskin_robbins/provider/home_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class MyApp extends StatefulWidget {
+class BottomNavigation extends StatefulWidget {
   @override
-  _MyApp createState() => _MyApp();
+  _BottomNavigation createState() => _BottomNavigation();
 }
 
-class _MyApp extends State<MyApp> {
+class _BottomNavigation extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     HomeProvider homeProvider = Provider.of<HomeProvider>(context);
@@ -27,7 +27,7 @@ class _MyApp extends State<MyApp> {
           onTap: (int index) {
             homeProvider.pageIdx = index;
           },
-          showSelectedLabels: false,
+          showSelectedLabels: false, // 라벨 텍스트 선택 x
           showUnselectedLabels: false,
           items: [
             BottomNavigationBarItem(
