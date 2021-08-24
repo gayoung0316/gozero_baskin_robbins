@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gozero_baskin_robbins/mainHome/bottom_navigation_bar.dart';
+import 'package:gozero_baskin_robbins/widget/bottom_navigation_bar.dart';
 
 class LoginHome extends StatefulWidget {
   @override

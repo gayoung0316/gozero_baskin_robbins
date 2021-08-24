@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gozero_baskin_robbins/event/coupon_page.dart';
 import 'package:gozero_baskin_robbins/mainHome/main_home.dart';
 import 'package:gozero_baskin_robbins/provider/home_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -82,9 +83,6 @@ class _BottomNavigation extends State<BottomNavigation> {
       'Places',
       style: TextStyle(fontSize: 30, fontFamily: 'DoHyeonRegular'),
     ),
-    Text(
-      'News',
-      style: TextStyle(fontSize: 30, fontFamily: 'DoHyeonRegular'),
-    ),
+    CouponPage(),
   ];
 }

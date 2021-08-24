@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gozero_baskin_robbins/delivery/delivery_page.dart';
+import 'package:gozero_baskin_robbins/event/event_page.dart';
 
 import 'main_home_drawer.dart';
 
@@ -164,11 +166,31 @@ class _MainHomeState extends State<MainHome> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    circleBox(image: 'mainHome_rider', title: '배달하기'),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DeliveryPage(),
+                          ),
+                        );
+                      },
+                      child: circleBox(image: 'mainHome_rider', title: '배달하기'),
+                    ),
                     SizedBox(width: 27.w),
                     circleBox(image: 'mainHome_gift', title: '선물하기'),
                     SizedBox(width: 27.w),
-                    circleBox(image: 'mainHome_Fire', title: '이벤트'),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EventPage(),
+                          ),
+                        );
+                      },
+                      child: circleBox(image: 'mainHome_Fire', title: '이벤트'),
+                    ),
                   ],
                 ),
               ),
