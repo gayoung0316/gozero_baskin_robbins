@@ -36,94 +36,89 @@ class _MainHomeState extends State<MainHome> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return false;
-      },
-      child: Scaffold(
-        key: _scaffoldKey,
-        endDrawer: Container(
-          width: 320.w,
-          child: Drawer(
-            child: MainHomeDrawer(),
-          ),
+    return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: Container(
+        width: 320.w,
+        child: Drawer(
+          child: MainHomeDrawer(),
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Image.asset(
-                    'assets/main_group.png',
-                    width: 560.w,
-                    height: 380.w,
-                    fit: BoxFit.cover,
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Image.asset(
+                  'assets/main_group.png',
+                  width: MediaQuery.of(context).size.width,
+                  height: 386.w,
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 300.w,
+                    left: 28.w,
+                    right: 28.w,
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: 300.w,
-                      left: 28.w,
-                      right: 28.w,
-                    ),
-                    height: 120.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.w),
-                      boxShadow: [
-                        BoxShadow(
-                          color:
-                              Color.fromRGBO(248, 157, 217, 0.3100000023841858),
-                          offset: Offset(3, 3),
-                          blurRadius: 4,
-                        )
-                      ],
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 18.w),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(60.w),
-                            child: Image.asset(
-                              'assets/jk.jpeg',
-                              height: 90.w,
-                              width: 90.w,
-                            ),
+                  height: 120.w,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.w),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(248, 157, 217, 0.3100000023841858),
+                        offset: Offset(3, 3),
+                        blurRadius: 4,
+                      )
+                    ],
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 18.w),
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/jk.jpeg',
+                            height: 82.w,
+                            width: 82.w,
                           ),
                         ),
-                        Column(
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20.w),
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.w),
-                              child: Text(
-                                '최가영님, 오늘은',
-                                style: TextStyle(
-                                  color: Color(0xff5A585A),
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 30.w),
-                              child: Text(
-                                '어떤 맛을 원하세요?',
-                                style: TextStyle(
-                                  color: Color(0xff5A585A),
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: '최가영님, 오늘은',
+                                    style: TextStyle(
+                                      color: Color(0xff5A585A),
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '\n어떤 맛을 원하세요?',
+                                    style: TextStyle(
+                                      color: Color(0xff5A585A),
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Container(
-                              // width: 150.sp,
                               height: 18.sp,
-                              margin: EdgeInsets.only(left: 30.w, top: 14.w),
+                              margin: EdgeInsets.only(top: 14..w),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(20.w),
                                 color: Color(0xffF89DDA).withOpacity(0.66),
                               ),
                               child: Padding(
@@ -141,101 +136,101 @@ class _MainHomeState extends State<MainHome> {
                               ),
                             )
                           ],
-                        )
-                      ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  right: 27.w,
+                  top: 45.w,
+                  child: InkWell(
+                    onTap: () {
+                      _scaffoldKey.currentState.openEndDrawer();
+                    },
+                    child: Image.asset(
+                      'assets/main_menu.png',
+                      width: 24.w,
+                      height: 24.w,
                     ),
                   ),
-                  Positioned(
-                    right: 27.w,
-                    top: 45.w,
-                    child: InkWell(
-                      onTap: () {
-                        _scaffoldKey.currentState.openEndDrawer();
-                      },
-                      child: Image.asset(
-                        'assets/main_menu.png',
-                        width: 24.w,
-                        height: 24.w,
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 36.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DeliveryPage(),
+                        ),
+                      );
+                    },
+                    child: circleBox(image: 'mainHome_rider', title: '배달하기'),
+                  ),
+                  SizedBox(width: 27.w),
+                  circleBox(image: 'mainHome_gift', title: '선물하기'),
+                  SizedBox(width: 27.w),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EventPage(),
+                        ),
+                      );
+                    },
+                    child: circleBox(image: 'mainHome_Fire', title: '이벤트'),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 23.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 24.w),
+                    child: Text(
+                      '인기 메뉴',
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff5A585A),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 24.w, top: 10.w),
+                    child: SingleChildScrollView(
+                      child: Row(
+                        children: [
+                          ...hotMenuList.map((item) {
+                            return hotMenu(
+                              image: item['image'],
+                              name: item['name'],
+                              width: item['width'],
+                              height: item['height'],
+                              index: hotMenuList.indexOf(item) + 1,
+                            );
+                          }),
+                        ],
                       ),
                     ),
                   )
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 36.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DeliveryPage(),
-                          ),
-                        );
-                      },
-                      child: circleBox(image: 'mainHome_rider', title: '배달하기'),
-                    ),
-                    SizedBox(width: 27.w),
-                    circleBox(image: 'mainHome_gift', title: '선물하기'),
-                    SizedBox(width: 27.w),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EventPage(),
-                          ),
-                        );
-                      },
-                      child: circleBox(image: 'mainHome_Fire', title: '이벤트'),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 23.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 24.w),
-                      child: Text(
-                        '인기 메뉴',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff5A585A),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 24.w, top: 10.w),
-                      child: SingleChildScrollView(
-                        child: Row(
-                          children: [
-                            ...hotMenuList.map((item) {
-                              return hotMenu(
-                                image: item['image'],
-                                name: item['name'],
-                                width: item['width'],
-                                height: item['height'],
-                                index: hotMenuList.indexOf(item) + 1,
-                              );
-                            }),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 27.w,
-              )
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 27.w,
+            )
+          ],
         ),
       ),
     );

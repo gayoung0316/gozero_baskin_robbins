@@ -13,14 +13,14 @@ class MainHomeDrawer extends StatelessWidget {
               color: Color(0xffFFC7EF),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Stack(
                   children: [
                     Container(
-                      width: 105,
-                      height: 105,
-                      margin: EdgeInsets.only(left: 5.w),
+                      width: 105.w,
+                      height: 105.w,
+                      margin: EdgeInsets.only(left: 35.w, top: 90.w),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         boxShadow: [
@@ -33,62 +33,66 @@ class MainHomeDrawer extends StatelessWidget {
                         color: Color(0xfff8b1e8),
                       ),
                     ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(1000),
-                      child: Image.asset(
-                        'assets/jk.jpeg',
-                        fit: BoxFit.cover,
-                        width: 88.w,
-                        height: 88.w,
+                    Padding(
+                      padding: EdgeInsets.only(top: 90.w, left: 30.w),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/jk.jpeg',
+                          fit: BoxFit.cover,
+                          width: 105.w,
+                          height: 105.w,
+                        ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(width: 14.w),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/bacskin_robbins_logo.png',
-                      width: 119.w,
-                      height: 23.w,
-                    ),
-                    SizedBox(height: 6.w),
-                    RichText(
-                      textScaleFactor: 1,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '안녕하세요!',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: Color(0xffFFFFFF),
-                              letterSpacing: 1.25,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          TextSpan(
-                            text: ' 최가영',
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              color: Color(0xffF970C5),
-                              letterSpacing: 1.25,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '님',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: Color(0xffFFFFFF),
-                              letterSpacing: 1.25,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
+                SizedBox(width: 23.w),
+                Padding(
+                  padding: EdgeInsets.only(top: 110.w),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/bacskin_robbins_logo.png',
+                        width: 119.w,
+                        height: 23.w,
                       ),
-                    )
-                  ],
+                      SizedBox(height: 6.w),
+                      RichText(
+                        textScaleFactor: 1,
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '안녕하세요! ',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Color(0xffFFFFFF),
+                                letterSpacing: 1.25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '최가영',
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                color: Color(0xffF970C5),
+                                letterSpacing: 1.25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '님',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Color(0xffFFFFFF),
+                                letterSpacing: 1.25,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
@@ -114,8 +118,8 @@ class MainHomeDrawer extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(right: 18.w),
-                  width: 22,
-                  height: 22,
+                  width: 22.w,
+                  height: 22.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0x60ffffff),
@@ -291,10 +295,10 @@ class MainHomeDrawer extends StatelessWidget {
     @required num top,
   }) {
     return Container(
-      width: 150,
-      height: 130,
+      width: 120.w,
+      height: 100.w,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(5.w),
         boxShadow: [
           BoxShadow(
             color: Color(0x3f000000),
