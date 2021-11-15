@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gozero_baskin_robbins/model/ice_cream_menu.dart';
+
+import 'ice_cream_menu_info.dart';
 
 class DeliveryPage extends StatefulWidget {
   @override
@@ -158,111 +161,54 @@ class _DeliveryPageState extends State<DeliveryPage> {
                   spacing: 40.w,
                   runSpacing: 40.w,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.w),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x1ef96fc5),
-                            blurRadius: 4,
-                            offset: Offset(3, 3),
+                    ...iceCreamMenu.map((item) {
+                      return InkWell(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => IceCreamMenuInfo(
+                              iceCreamMenu: item,
+                            ),
                           ),
-                        ],
-                      ),
-                      width: 120.w,
-                      height: 140.w,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.w),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x1ef96fc5),
-                            blurRadius: 4,
-                            offset: Offset(3, 3),
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30.w),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x1ef96fc5),
+                                blurRadius: 4,
+                                offset: Offset(3, 3),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      width: 120.w,
-                      height: 140.w,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.w),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x1ef96fc5),
-                            blurRadius: 4,
-                            offset: Offset(3, 3),
+                          width: 120.w,
+                          height: 140.w,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/ice_cream_menu/${item['image']}.png',
+                                height: 120,
+                                width: 110,
+                              ),
+                              SizedBox(height: 7.w),
+                              Text(
+                                item['name'],
+                                textScaleFactor: 1.0,
+                                style: TextStyle(
+                                  color: Color(0xff848484),
+                                  letterSpacing: 1.25,
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      width: 120.w,
-                      height: 140.w,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.w),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x1ef96fc5),
-                            blurRadius: 4,
-                            offset: Offset(3, 3),
-                          ),
-                        ],
-                      ),
-                      width: 120.w,
-                      height: 140.w,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.w),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x1ef96fc5),
-                            blurRadius: 4,
-                            offset: Offset(3, 3),
-                          ),
-                        ],
-                      ),
-                      width: 120.w,
-                      height: 140.w,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.w),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x1ef96fc5),
-                            blurRadius: 4,
-                            offset: Offset(3, 3),
-                          ),
-                        ],
-                      ),
-                      width: 120.w,
-                      height: 140.w,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.w),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x1ef96fc5),
-                            blurRadius: 4,
-                            offset: Offset(3, 3),
-                          ),
-                        ],
-                      ),
-                      width: 120.w,
-                      height: 140.w,
-                    )
+                        ),
+                      );
+                    })
                   ],
                 ),
               ),
